@@ -4,7 +4,7 @@
  */
 class FluentHttpLogger
 {
-    const DEFAULT_HTTP_PORT = 8888;
+    const DEFAULT_HTTP_PORT = 9880;
 
     protected $tag;
     protected $host;
@@ -26,6 +26,6 @@ class FluentHttpLogger
 
     public function send($data)
     {
-        file_get_contents($this->uri . '?json=' . json_encode($data));
+        file_get_contents(sprintf('%s?json=%s', $this->uri, json_encode($data)));
     }
 }
